@@ -83,14 +83,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean tom() {
-        return hode == null;
+        return (antall== 0 && hode == null && hale == null);
     }
 
     @Override
     public boolean leggInn(T verdi) {
         Objects.requireNonNull(verdi, "Null-verdier er ikke tillat!");
 
-        if (antall == 0) {
+        if (tom()) {
             hode = hale = new Node<>(verdi);
         }
         else {
