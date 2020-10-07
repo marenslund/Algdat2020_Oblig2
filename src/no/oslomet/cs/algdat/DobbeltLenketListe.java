@@ -91,18 +91,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         fratilKontroll(antall, fra, til);
 
         DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
-        antall = til - fra;
+        int listeLengde = til - fra;
 
-        if (antall < 1) {
+        if (listeLengde < 1) {
             return liste;
         }
 
         Node<T> node = finnNode(fra);
 
-        while (antall > 0) {
+        while (listeLengde > 0) {
             liste.leggInn(node.verdi);
             node = node.neste;
-            antall--;
+            listeLengde--;
         }
 
         return liste;
@@ -147,6 +147,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     private Node<T> finnNode(int indeks) {
+
+        indeksKontroll(indeks, false);
 
         Node<T> finnNode;
         if (indeks < antall/2) {
