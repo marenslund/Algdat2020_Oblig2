@@ -16,7 +16,7 @@ Se oblig-tekst for alle krav. Oppgaver som ikke oppfyller følgende vil ikke få
 Oppgaven er levert av følgende studenter:
 * Maren Spongsveen Lund, s344057, s344057@oslomet.no
 
-Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 6 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
+Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 13 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Maren har hatt hovedansvar for oppgave 1, 2, 3, 4, 5, 6, 8
@@ -26,5 +26,7 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 1: Løste ved å implementere en for-løkke som traverserer lista a fra den siste noden og bakover til den første, 
 for så å legge de til i en dobbelt lenket liste. Implementerte også en if-test som sjekker at nodene ikke er null, og hvis de er det,
 blir de hoppet over, altså ikke lagt inn.
-* Oppgave 2: ...
+* Oppgave 2: Løste ved å først implementere toString() og omvendtString metodene. La til en StringBuilder i begge metodene, en if-test som sjekker om lista er tom.
+Hvis ikke, legger den itl nodene fra lista i strengen. Så implementerte jeg leddInn metoden
+med en test som sjekker om lista er tom, og legger til verdien først. Hvis den ikke er tom, peker den på halen, og legger til verdien bakerst.
 
