@@ -72,8 +72,41 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Objects.requireNonNull(a, "Tabellen a er null!");
     }
 
+    private void fratilKontroll(int antall, int fra, int til)
+    {
+        if (fra < 0) {
+            throw new IndexOutOfBoundsException("fra er negativ!");
+        }
+
+        if (til > antall) {
+            throw new IndexOutOfBoundsException("til er større enn antall!");
+        }
+
+        if (fra > til) {
+            throw new IllegalArgumentException("fra er større enn til!");
+        }
+    }
+
     public Liste<T> subliste(int fra, int til){
-        return null;
+        fratilKontroll(antall, fra, til);
+
+        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
+        antall = til - fra;
+
+        if (antall < 1) {
+            return liste;
+        }
+
+        Node<T> node = finnNode(fra);
+
+        while (antall > 0) {
+            liste.leggInn(node.verdi);
+            node = node.neste;
+            antall--;
+        }
+
+        return liste;
+
     }
 
     @Override
