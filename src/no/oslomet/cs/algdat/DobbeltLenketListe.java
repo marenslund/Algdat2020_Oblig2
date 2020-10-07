@@ -48,7 +48,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        Objects.requireNonNull(a, "Tabellen a er null!");
+
         if (a.length == 0) {
             return;
         }
@@ -68,6 +68,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hode = hode.neste;
             hode.forrige = null;
         }
+
+        Objects.requireNonNull(a, "Tabellen a er null!");
     }
 
     public Liste<T> subliste(int fra, int til){
@@ -131,11 +133,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+        StringBuilder str = new StringBuilder();
+
+        for (Node<T> i = hode; i != null; i = i.neste) {
+            str.append(i.verdi.toString());
+        }
+
+        return str.toString();
     }
 
     public String omvendtString() {
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
