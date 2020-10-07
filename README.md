@@ -29,4 +29,9 @@ blir de hoppet over, altså ikke lagt inn.
 * Oppgave 2: Løste ved å først implementere toString() og omvendtString metodene. La til en StringBuilder i begge metodene, en if-test som sjekker om lista er tom.
 Hvis ikke, legger den til nodene fra lista i strengen. Så implementerte jeg leggInn metoden
 med en test som sjekker om lista er tom, og legger til verdien først. Hvis den ikke er tom, peker den på halen, og legger til verdien bakerst.
+* Oppgave 3: Løste ved å først lage den private metoden finnNode som tar enn en indeks. deretter leter den etter noden med den indeksen, og starter
+foran/bakerst basert på hvilken som er nærmest (som blir sjekket med en if-test). Deretter implementerte jeg hent metoden som bruker finnNode, samt oppdater
+som oppdaterer verdien på indeks plassen med den gitte nye verdien.
+så implementerte jeg subListe metoden som lager en ny liste med de verdiene hentet utifra "fra" og "til" parameterene. Metoden oppretter en ny liste
+og setter inn de nye verdiene bakerst. Metoden bruker finnNode for å finne verdien, og leggInn for å legge til
 
