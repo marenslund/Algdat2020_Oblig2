@@ -73,7 +73,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til){
-        throw new UnsupportedOperationException();
+        return null;
     }
 
     @Override
@@ -145,7 +145,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
+        Objects.requireNonNull(nyverdi, "Ny verdi kan ikke være null!");
+
+        Node<T> nyNode = finnNode(indeks);
+        T gammelVerdi = nyNode.verdi;
+
+        nyNode.verdi = nyverdi;
+
+        endringer++;
+        return gammelVerdi;
     }
 
     @Override
