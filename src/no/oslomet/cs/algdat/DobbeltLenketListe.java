@@ -139,9 +139,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void leggInn(int indeks, T verdi) {
 
-        if (indeks > antall || indeks < 0) {
-            throw new IndexOutOfBoundsException("Indeks er negativ eller mer enn antall!");
-        }
+        indeksKontroll(indeks, true);
 
         Objects.requireNonNull(verdi, "Verdi er null!");
 
@@ -154,7 +152,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         else if (indeks == antall) {
             hale = hale.neste = new Node<>(verdi, hale, null);
-            hale.forrige.neste = hale;
         } else {
             Node<T> node = hode;
 
