@@ -158,12 +158,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         } else {
             Node<T> node = hode;
 
-            for (int i = 0; i < indeks; i++)
+            for (int i = 0; i < indeks; i++) {
                 node = node.neste;
-            {
-
-                node = new Node<>(verdi, node.forrige, node);
             }
+
+            node = new Node<>(verdi, node.forrige, node);
             node.neste.forrige = node.forrige.neste = node;
         }
 
