@@ -143,11 +143,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             throw new IndexOutOfBoundsException("Indeks er negativ eller mer enn antall!");
         }
 
-        else if (verdi == null) {
-            throw new NullPointerException("Verdi er null!");
-        }
+        Objects.requireNonNull(verdi, "Verdi er null!");
 
-        else if (tom()) {
+        if (tom()) {
             hode = hale = new Node<>(verdi);
         }
         else if (indeks == 0) {
@@ -160,8 +158,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         } else {
             Node<T> node = hode;
 
-            for (int i = 0; i < indeks; i++) {
+            for (int i = 0; i < indeks; i++)
                 node = node.neste;
+            {
+
                 node = new Node<>(verdi, node.forrige, node);
             }
             node.neste.forrige = node.forrige.neste = node;
