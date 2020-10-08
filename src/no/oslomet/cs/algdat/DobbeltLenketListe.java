@@ -272,7 +272,25 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public T fjern(int indeks) {
         indeksKontroll(indeks, false);
 
-        T returnVerdi = null;
+        T returnVerdi;
+
+        if (indeks == 0) {
+            returnVerdi = hode.verdi;
+            hode = hode.neste;
+        }
+        else {
+            Node<T> node = finnNode(indeks);
+            returnVerdi = node.verdi;
+
+            if (node == hale) {
+                hale = node.forrige;
+            }
+
+            node.forrige.neste = node.neste;
+        }
+
+        antall--;
+        endringer++;
 
         return returnVerdi;
     }
