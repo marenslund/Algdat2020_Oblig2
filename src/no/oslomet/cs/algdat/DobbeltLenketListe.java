@@ -184,7 +184,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> node = hode;
 
         for (int i = 0; i < antall; i++) {
-            if (node.verdi == verdi) {
+            if (node.verdi.equals(verdi)) {
                 return i;
             }
             node = node.neste;
