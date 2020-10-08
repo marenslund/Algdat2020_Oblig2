@@ -34,4 +34,7 @@ foran/bakerst basert på hvilken som er nærmest (som blir sjekket med en if-tes
 som oppdaterer verdien på indeks plassen med den gitte nye verdien.
 så implementerte jeg subListe metoden som lager en ny liste med de verdiene hentet utifra "fra" og "til" parameterene. Metoden oppretter en ny liste
 og setter inn de nye verdiene bakerst. Metoden bruker finnNode for å finne verdien, og leggInn for å legge til
+* Oppgave 4: Løste ved å først implementere indeksTil med en for-loop som looper gjennom 
+lista og sjekker om verdien finnes. bruker node.neste for å sjekke neste node i lista. Så implementerte jeg 
+inneholder metoden som sjekker om indeksTil(verdi) returnerer -1 eller ikke. Returnerer false om -1 returneres, og true ellers.
 
