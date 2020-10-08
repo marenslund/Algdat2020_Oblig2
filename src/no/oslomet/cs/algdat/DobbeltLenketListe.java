@@ -139,11 +139,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void leggInn(int indeks, T verdi) {
         if (indeks >= 0 && indeks <= antall) {
-            if (indeks == 0) {
+            if (tom()) {
                 hode = hale = new Node<>(verdi);
+            }
+            else if (indeks == 0) {
+                hode = new Node<>(verdi, null, hode);
+                hode.neste.forrige = hode;
             }
             else if (indeks == antall) {
                 hale = hale.neste = new Node<>(verdi, hale, null);
+                hale.forrige.neste = hale;
+            } else {
+                Node<T> node = hode;
+
+                for (int i = 0; i < indeks; i++) {
+                    node = new Node<>(verdi, node.forrige, node);
+                    node = node.neste;
+                }
+                node.neste.forrige = node.forrige.neste = node;
             }
         }
         else {
