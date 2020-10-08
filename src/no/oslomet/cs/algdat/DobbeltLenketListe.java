@@ -278,15 +278,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             returnVerdi = hode.verdi;
             hode = hode.neste;
         }
+        else if (antall == 1) {
+            returnVerdi = hale.verdi;
+            hale = null;
+        }
         else {
             Node<T> node = finnNode(indeks);
+            Node<T> nodeForrige = node.forrige;
             returnVerdi = node.verdi;
 
             if (node == hale) {
-                hale = node.forrige;
+                hale = nodeForrige;
             }
 
-            node.forrige.neste = node.neste;
+            nodeForrige.neste = node.neste;
         }
 
         antall--;
