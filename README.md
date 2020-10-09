@@ -16,7 +16,7 @@ Se oblig-tekst for alle krav. Oppgaver som ikke oppfyller følgende vil ikke få
 Oppgaven er levert av følgende studenter:
 * Maren Spongsveen Lund, s344057, s344057@oslomet.no
 
-Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 26 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
+Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 39 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Maren har hatt hovedansvar for oppgave 1, 2, 3, 4, 5, 6, 8
@@ -43,4 +43,7 @@ en for-loop som finner node.neste basert på indeksen den nye verdien skal legge
 * Oppgave 6: Løste ved å implementere fjern(indeks) med if-tester som sjekker for når den skal fjerne siste
 node, første node og node mellom. Så implementerte jeg fjern(verdi) med if-tester som sjekker lista for om verdien som skal fjernes
 ligger først, eller ikke finnes. Så en else for når verdien som skal fjernes ligger mellom to noder
+* Oppgave 8: Løste ved å først implementere next() metoden med if-tester som sjekker for exceptions og returnerer denne sin verdi
+samt setter pekeren til neste verdi. Implementerte så iterator metodene som returnerer hver sine instanser av iteratorklassen. Til slutt
+implementerte jeg DobbeltLenketListeIterator konstruktøren som satte denne til noden gitt av indeks, ved hjelp av finnNode() metoden
 
