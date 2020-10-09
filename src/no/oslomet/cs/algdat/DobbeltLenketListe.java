@@ -274,38 +274,38 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         indeksKontroll(indeks, false);
 
         T returnVerdi;
-        Node<T> current = hode;
+        Node<T> node = hode;
 
         if (indeks == 0) {
-            returnVerdi = current.verdi;
+            returnVerdi = node.verdi;
 
             if (antall == 1) {
                 hale = null;
                 hode = null;
             }
             else {
-                hode = current.neste;
+                hode = node.neste;
                 hode.forrige = null;
             }
 
         }
 
         else if (indeks == antall-1) {
-            current = hale;
+            node = hale;
             returnVerdi = hale.verdi;
 
-            hale = current.forrige;
+            hale = node.forrige;
             hale.neste = null;
         }
 
         else {
             for (int i = 0; i < indeks; i++) {
-                current = current.neste;
+                node = node.neste;
             }
-            returnVerdi = current.verdi;
+            returnVerdi = node.verdi;
 
-            current.forrige.neste = current.neste;
-            current.neste.forrige = current.forrige;
+            node.forrige.neste = node.neste;
+            node.neste.forrige = node.forrige;
         }
 
         antall--;
