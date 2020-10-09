@@ -239,7 +239,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Node<T> node = hode;
 
-        if (verdi.equals(node.verdi)) {
+        if (hode.verdi.equals(verdi)) {
             if (node.neste != null) {
                 hode = node.neste;
                 hode.forrige = null;
@@ -252,8 +252,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return true;
         }
 
-        node = hale;
-        if (verdi.equals(node.verdi)) {
+        else if (hale.verdi.equals(verdi)) {
+            node = hale;
             hale = node.forrige;
             hale.neste = null;
             antall--;
@@ -261,16 +261,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return true;
         }
 
-        node = hode.neste;
-        while (node != null) {
-            if (verdi.equals(node.verdi)) {
-                node.forrige.neste = node.neste;
-                node.neste.forrige = node.forrige;
-                antall--;
-                endringer++;
-                return true;
+        else {
+            node = hode.neste;
+            while (node != null) {
+                if (verdi.equals(node.verdi)) {
+                    node.forrige.neste = node.neste;
+                    node.neste.forrige = node.forrige;
+                    antall--;
+                    endringer++;
+                    return true;
+                }
+                node = node.neste;
             }
-            node = node.neste;
         }
         return false;
     }
