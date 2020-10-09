@@ -236,32 +236,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Objects.requireNonNull(verdi, "Verdi kan ikke være null!");
 
         Node<T> node = hode;
-        Node<T> nyNode = null;
 
-        while (node != null) {
-            if (node.verdi.equals(verdi)) {
-                break;
+        for (int i = 0; i < antall; i++) {
+            if (!node.verdi.equals(verdi)) {
+                node = node.neste;
             }
-            nyNode = node;
-            node = node.neste;
-
         }
 
         if (node == null) {
             return false;
         }
-        else if (node == hode) {
-            hode = hode.neste;
+
+        if (node == hode) {
+            hode = node.neste;
+            hode.forrige = null;
+        }
+        else if (node == hale) {
+            hale = node.forrige;
+            hale.neste = null;
         }
         else {
-            nyNode.neste = node.forrige;
-        }
-        if (node == hale) {
-            hale = nyNode;
-        }
+            node.forrige = node.neste = node.neste.neste;
+            node.neste = node.forrige = node.forrige.forrige;
 
-        node.verdi = null;
-        node.neste = null;
+        }
 
         antall--;
         endringer++;
@@ -324,11 +322,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public String toString() {
+        Node<T> node = hode;
         StringBuilder str = new StringBuilder();
         str.append("[");
 
         if (!tom()) {
-            Node<T> node = hode;
             str.append(node.verdi);
 
             node = node.neste;
@@ -346,11 +344,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public String omvendtString() {
+        Node<T> node = hale;
         StringBuilder str = new StringBuilder();
         str.append("[");
 
         if (!tom()) {
-            Node<T> node = hale;
             str.append(node.verdi);
 
             node = node.forrige;
