@@ -40,4 +40,7 @@ inneholder metoden som sjekker om indeksTil(verdi) returnerer -1 eller ikke. Ret
 * Oppgave 5: Løste ved å først legge inn sjekk for ugyldige verdier, for så å legge inn sjekker
 for når verdien skulle legges inn bakerst, forrest, og når lista var tom. Til slutt implementerte jeg
 en for-loop som finner node.neste basert på indeksen den nye verdien skal legges inn i, for så å legge inn verdien på riktig plass.
+* Oppgave 6: Løste ved å implementere fjern(indeks) med if-tester som sjekker for når den skal fjerne siste
+node, første node og node mellom. Så implementerte jeg fjern(verdi) med if-tester som sjekker lista for om verdien som skal fjernes
+ligger først, eller ikke finnes. Så en else for når verdien som skal fjernes ligger mellom to noder
 
