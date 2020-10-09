@@ -256,8 +256,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hale.neste = null;
         }
         else {
-            node.forrige = node.neste = node.neste.neste;
-            node.neste = node.forrige = node.forrige.forrige;
+            node.forrige.neste = node.forrige;
+            node.neste.forrige = node.neste;
 
         }
 
