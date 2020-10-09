@@ -332,8 +332,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node = node.neste;
 
             while (node != null) {
-                str.append(",");
-                str.append(" ");
+                str.append(", ");
                 str.append(node.verdi);
                 node = node.neste;
             }
@@ -354,8 +353,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             node = node.forrige;
 
             while (node != null) {
-                str.append(",");
-                str.append(" ");
+                str.append(", ");
                 str.append(node.verdi);
                 node = node.forrige;
             }
