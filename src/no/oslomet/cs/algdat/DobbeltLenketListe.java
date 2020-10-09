@@ -244,6 +244,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
             nyNode = node;
             node = node.neste;
+
         }
 
         if (node == null) {
@@ -273,26 +274,38 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         indeksKontroll(indeks, false);
 
         T returnVerdi;
+        Node<T> current = hode;
 
         if (indeks == 0) {
-            returnVerdi = hode.verdi;
-            hode = hode.neste;
+            returnVerdi = current.verdi;
 
             if (antall == 1) {
                 hale = null;
+                hode = null;
+            }
+            else {
+                hode = current.neste;
+                hode.forrige = null;
             }
 
         }
+
+        else if (indeks == antall-1) {
+            current = hale;
+            returnVerdi = hale.verdi;
+
+            hale = current.forrige;
+            hale.neste = null;
+        }
+
         else {
-            Node<T> node = finnNode(indeks-1);
-            Node<T> nodeFjernes = node.neste;
-            returnVerdi = nodeFjernes.verdi;
-
-            if (nodeFjernes == hale) {
-                hale = node;
+            for (int i = 0; i < indeks; i++) {
+                current = current.neste;
             }
+            returnVerdi = current.verdi;
 
-            node.neste = nodeFjernes.neste;
+            current.forrige.neste = current.neste;
+            current.neste.forrige = current.forrige;
         }
 
         antall--;
